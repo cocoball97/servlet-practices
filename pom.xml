@@ -7,35 +7,25 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<properties>
-		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
-		<maven.compiler.source>21</maven.compiler.source>
-		<maven.compiler.target>21</maven.compiler.target>
-	</properties>
-
-	<dependencies>
+	<modules>
+		<module>helloweb</module>
+		<module>emaillist01</module>
+		<module>guestbook02</module>
+		<module>jstlel</module>
+	</modules>
 	
-		<!-- servlet api -->
-		<dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-			<version>6.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<!-- jsp api -->
-		<dependency>
-		    <groupId>jakarta.servlet.jsp</groupId>
-		    <artifactId>jakarta.servlet.jsp-api</artifactId>
-		    <version>4.0.0</version>
-		    <scope>provided</scope>
-		</dependency>
- 
-
-	</dependencies>
-
 	<build>
-		<finalName>jstlel</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+		    	<artifactId>tomcat7-maven-plugin</artifactId>
+		    	<version>2.2</version>
+		    	<configuration>
+					<url>${tomcat.deploy.url}</url>
+					<server>tomcat-poscodx</server>
+				</configuration>
+			</plugin>
+		</plugins>	
 	</build>
-
+	
 </project>
